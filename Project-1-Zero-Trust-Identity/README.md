@@ -1,117 +1,350 @@
-Enterprise Zero Trust Identity Program
+# Enterprise Zero Trust Identity Program
 
-Organisation: Unigreen Bio
-Platform: Microsoft Entra ID
-Project Type: Identity Security Engineering & Architecture
-Environment: Personal Microsoft Entra ID Learning Tenant
-Project Status: In Progress
+**Organisation:** Unigreen Bio  
+**Platform:** Microsoft Entra ID  
+**Project Type:** Identity Security Engineering & Architecture  
+**Environment:** Personal Microsoft Entra ID Learning Tenant  
+**Tenant Domain:** Unigreen592.onmicrosoft.com  
+**Licence:** Microsoft Entra ID Free  
+**Project Status:** In Progress  
+**Author:** Tochukwu Osuji
 
-1. Project Overview
+---
 
-This project demonstrates the design, implementation, and documentation of a Zero Trust Identity Architecture using Microsoft Entra ID.
+## 1. Project Overview
 
-The objective is to strengthen identity security through least privilege, strong authentication, role-based access control, administrative access management, and identity governance.
+This project demonstrates the design, implementation, assessment, and documentation of a Zero Trust Identity Architecture using Microsoft Entra ID.
 
-The project combines hands-on technical configuration with enterprise security architecture design.
+The objective is to strengthen identity security through:
 
-2. Business Scenario
+- Role-Based Access Control (RBAC)
+- Multi-Factor Authentication (MFA)
+- Least Privilege Access
+- Administrative Access Management
+- Identity Governance
+- Security Monitoring
+- Emergency Access Planning
 
-Unigreen Bio is used as the organisational context for this identity engineering project.
+The project combines **hands-on technical implementation** with **enterprise security architecture design**.
 
-The simulated enterprise environment includes employees, IT administrators, security personnel, and external collaborators requiring secure access to Microsoft cloud resources.
+Features requiring additional Microsoft Entra licensing will be documented as proposed designs rather than claimed implementations.
 
-The organisation requires an identity security architecture that:
+---
 
-Protects user accounts against unauthorised access.
+## 2. Business Scenario
 
-Reduces excessive administrative privileges.
+**Unigreen Bio** serves as the organisational context for this identity engineering portfolio.
 
-Implements strong authentication principles.
+The simulated enterprise environment includes:
 
-Establishes clear access control boundaries.
+- IT Administrators
+- Security Administrators
+- Finance Employees
+- Standard Employees
+- External Collaborators
+- Guest Users
 
-Supports identity governance and auditing.
+### Business Challenge
 
-Provides procedures for emergency administrative access.
+As organisations grow, managing identity security becomes increasingly complex.
 
-3. Security Objectives
+The simulated business requires an identity architecture that:
 
-The project focuses on the following objectives:
+1. Protects user accounts against unauthorised access.
+2. Reduces excessive administrative privileges.
+3. Implements strong authentication controls.
+4. Establishes secure access boundaries.
+5. Supports identity governance and auditing.
+6. Provides emergency administrative recovery procedures.
 
-Multi-Factor Authentication (MFA): Strengthen authentication security.
+---
 
-Role-Based Access Control (RBAC): Apply least privilege principles.
+## 3. Security Objectives
 
-Administrative Security: Separate standard and privileged identities.
+| Security Objective | Description |
+|---|---|
+| Multi-Factor Authentication | Strengthen user authentication security |
+| Role-Based Access Control | Assign access based on job responsibilities |
+| Least Privilege | Limit permissions to what users require |
+| Administrative Security | Protect highly privileged identities |
+| Zero Trust | Apply explicit verification and controlled access |
+| Identity Governance | Establish access management and review procedures |
+| Emergency Access | Design administrative recovery procedures |
+| Security Monitoring | Support identity auditing and investigation |
 
-Zero Trust: Design access controls based on explicit verification.
+---
 
-Emergency Access: Develop secure administrative recovery procedures.
+## 4. Technical Environment
 
-Security Monitoring: Establish an identity monitoring and audit framework.
+| Component | Configuration |
+|---|---|
+| Organisation | Unigreen Bio |
+| Identity Platform | Microsoft Entra ID |
+| Tenant Domain | Unigreen592.onmicrosoft.com |
+| Licence | Microsoft Entra ID Free |
+| Environment Type | Personal Learning Tenant |
+| Security Defaults | Enabled |
+| Primary Administration | Global Administrator |
 
-4. Technical Environment
+### Technology Stack
 
-Identity Platform: Microsoft Entra ID
-Tenant: Unigreen Bio
-Tenant Domain: Unigreen592.onmicrosoft.com
-Licence: Microsoft Entra ID Free
+- Microsoft Entra Admin Center
+- Microsoft Entra ID
+- Microsoft Graph API (Planned)
+- PowerShell (Planned)
+- GitHub
+- Draw.io
+- Microsoft 365 Identity Services
 
-The implementation will distinguish between capabilities available in the existing tenant and enterprise controls that require additional licensing.
+---
 
-5. Implementation Phases
+## 5. Initial Identity Security Assessment
 
-Phase 1: Identity Environment Assessment
+An initial read-only security assessment was conducted on November 4, 2026.
 
-Phase 2: User and Security Group Management
+### Verified Findings
 
-Phase 3: Role-Based Administrative Access Design
+| Assessment Area | Finding |
+|---|---|
+| Total User Accounts | 10 |
+| Member Accounts | 9 |
+| Guest Accounts | 1 |
+| Total Groups | 7 |
+| Security Groups | 4 |
+| Microsoft 365 Groups | 3 |
+| Global Administrator Assignments Observed | 1 |
+| Microsoft Authenticator Policy | Enabled |
+| Passkey (FIDO2) Policy | Enabled |
+| SMS Authentication Policy | Disabled |
+| Security Defaults | Enabled |
 
-Phase 4: MFA and Authentication Security Assessment
+### Assessment Observations
 
-Phase 5: Emergency Access Architecture
+**Positive Findings:**
 
-Phase 6: Security Control Matrix
+- Security Defaults is enabled.
+- Microsoft Authenticator is available.
+- FIDO2 passkeys are enabled in authentication method policies.
+- SMS and voice authentication methods are disabled.
+- Existing security groups provide a foundation for RBAC exercises.
 
-Phase 7: Zero Trust Architecture Diagram
+**Areas for Further Assessment:**
 
-Phase 8: Testing, Evidence Collection, and Documentation
+- Emergency administrative access arrangements
+- MFA registration coverage
+- Privileged role governance
+- Security group membership reviews
+- Sign-in monitoring and audit capabilities
 
-6. Project Deliverables
+**Important:** Enabled authentication policies do not automatically establish that every user has registered MFA or uses it during every sign-in.
 
-The completed project will include:
+### Detailed Assessment Report
 
-Identity environment assessment
+[View Identity Security Assessment Report](Identity-Security-Assessment.md)
 
-User and security group configuration evidence
+---
 
-Administrative access model
+## 6. Implementation Roadmap
 
-MFA strategy document
+| Phase | Activity | Status |
+|---|---|---|
+| Phase 1 | Identity Environment Assessment | Completed |
+| Phase 2 | User and Security Group Access Model | Planned |
+| Phase 3 | Administrative Access Architecture | Planned |
+| Phase 4 | MFA and Authentication Security Strategy | Planned |
+| Phase 5 | Emergency Access Design | Planned |
+| Phase 6 | Security Control Matrix | Planned |
+| Phase 7 | Zero Trust Architecture Diagram | Planned |
+| Phase 8 | Technical Validation and Documentation | Planned |
 
-Emergency access design
+---
 
-Legacy authentication risk assessment
+## 7. Role-Based Access Control (RBAC)
 
-Security control matrix
+### Objective
 
-Zero Trust architecture diagram
+Design and demonstrate an access control model where users receive permissions according to their job responsibilities.
 
-Implementation screenshots
+### Existing Security Group
 
-Lessons learned and security recommendations
+**Group Name:** SG-Finance-Access
 
-7. Implementation Evidence
+This group will be assessed for its suitability in demonstrating Finance access management.
 
-Evidence will be added as each technical activity is completed and verified.
+### Planned Activities
 
-Screenshots will be reviewed to avoid publishing sensitive tenant information.
+- Review existing group memberships.
+- Define authorised access requirements.
+- Identify access restrictions.
+- Document group ownership and membership criteria.
+- Validate group membership changes.
+- Collect implementation evidence.
 
-8. Project Status
+### Expected Outcome
 
-In Progress
+A documented RBAC implementation demonstrating controlled access assignment and least privilege principles.
 
-Implementation results, security findings, and lessons learned will be documented throughout the project.
+**Status:** Planned
 
-Author: Tochukwu Osuji
-Focus: Identity & Access Management | Zero Trust | Microsoft Entra ID
+---
+
+## 8. Administrative Access Security
+
+### Objective
+
+Develop a secure administrative access model based on least privilege.
+
+### Planned Controls
+
+- Administrative role separation
+- Role assignment reviews
+- Privileged identity protection
+- Emergency access procedures
+- Privileged access governance
+
+### Licensing Considerations
+
+Microsoft Entra Privileged Identity Management (PIM) requires appropriate licensing.
+
+PIM-related controls will be documented as architecture designs unless implementation becomes available through suitable licensing.
+
+**Status:** Planned
+
+---
+
+## 9. Authentication Security Strategy
+
+### Objective
+
+Evaluate and document strong authentication controls for the organisation.
+
+### Key Focus Areas
+
+- Microsoft Authenticator
+- FIDO2 Passkeys
+- Multi-Factor Authentication
+- Authentication Method Policies
+- Security Defaults
+- Phishing-Resistant Authentication
+- Authentication Registration Reporting
+
+### Existing Security Baseline
+
+Microsoft Entra Security Defaults is enabled.
+
+The project will retain existing tenant-wide security settings during the assessment and design phases.
+
+**Status:** Initial Assessment Completed; Strategy Development Planned
+
+---
+
+## 10. Zero Trust Architecture
+
+The architecture will follow three fundamental Zero Trust principles.
+
+### Verify Explicitly
+
+Validate identity and use strong authentication controls.
+
+### Use Least Privilege
+
+Restrict access according to business responsibilities.
+
+### Assume Breach
+
+Design monitoring, auditing, and recovery procedures to reduce the impact of potential compromise.
+
+### Planned Architecture Deliverables
+
+- Identity Security Architecture Diagram
+- Administrative Access Model
+- MFA Strategy
+- Security Control Matrix
+- Emergency Access Design
+- Identity Governance Recommendations
+
+**Status:** Planned
+
+---
+
+## 11. Implementation Evidence
+
+Evidence will be collected throughout the project.
+
+Examples include:
+
+- User inventory screenshots
+- Security group configuration screenshots
+- Administrative role assignment evidence
+- Authentication policy screenshots
+- Security Defaults assessment
+- RBAC implementation and validation results
+
+Sensitive information will be reviewed and redacted before publication.
+
+---
+
+## 12. Security Considerations
+
+The following principles guide the project:
+
+1. Avoid unnecessary administrative privilege changes.
+2. Preserve existing tenant-wide security configurations.
+3. Follow least privilege principles.
+4. Document security risks before implementing controls.
+5. Distinguish actual implementations from proposed enterprise designs.
+6. Avoid publishing credentials, secrets, tokens, or sensitive identifiers.
+7. Validate configuration changes before reporting successful outcomes.
+
+---
+
+## 13. Lessons Learned
+
+The initial assessment demonstrates that identity security requires more than simply enabling authentication features.
+
+A strong identity security programme combines:
+
+- Identity inventory management
+- Access control governance
+- Administrative privilege protection
+- Authentication security
+- Monitoring and auditing
+- Security architecture documentation
+
+Additional lessons will be recorded as the project progresses.
+
+---
+
+## 14. Project Deliverables
+
+The completed project is intended to include:
+
+- [x] GitHub project repository
+- [x] Initial identity security assessment
+- [x] Identity Security Assessment Report
+- [ ] User and Security Group Access Model
+- [ ] Administrative Access Model
+- [ ] MFA Strategy Document
+- [ ] Emergency Access Design
+- [ ] Legacy Authentication Risk Assessment
+- [ ] Security Control Matrix
+- [ ] Zero Trust Architecture Diagram
+- [ ] Implementation Evidence
+- [ ] Final Validation Report
+- [ ] Project Lessons Learned
+
+---
+
+## 15. Project Conclusion
+
+This project aims to demonstrate practical Identity & Access Management engineering capabilities through Microsoft Entra ID.
+
+By combining technical assessment, hands-on implementation, architecture design, and professional documentation, the project will provide evidence of IAM knowledge and security engineering practices.
+
+The environment is a personal learning tenant, and enterprise scenarios are simulated for educational and portfolio purposes.
+
+---
+
+**Author:** Tochukwu Osuji  
+**Specialisation:** Identity & Access Management | Microsoft Entra ID | Zero Trust Security  
+**Project Status:** In Progress
