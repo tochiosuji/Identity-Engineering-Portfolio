@@ -1,31 +1,74 @@
-Identity Engineering Portfolio
-Welcome to my Identity and Access Management Engineering Portfolio.
+# Identity & Access Engineering Portfolio
 
-This portfolio demonstrates hands-on Microsoft Entra ID projects focused on:
+**Author:** Tochukwu Osuji  
+**Specialisation:** Identity & Access Management | Microsoft Entra ID | Cloud Security
 
-Zero Trust Architecture
-Identity Governance
-Role-Based Access Control (RBAC)
-Identity Automation
-Hybrid Identity
-Security Operations
-Organisation
-This portfolio is centred around a fictional enterprise implementation based on my Microsoft Entra tenant:
+---
 
-Unigreen Bio
+## Professional Overview
 
-Projects
-Project 1 - Zero Trust Identity Programme
-Designing and documenting a secure identity architecture using Microsoft Entra ID.
+Welcome to my Identity & Access Engineering portfolio.
 
-Project 2 - Privileged Access Management
-Implementing secure administrative access principles.
+This repository documents practical projects, technical implementations, security architecture designs, and automation initiatives focused on Microsoft Entra ID and enterprise Identity & Access Management.
 
-Project 3 - Identity Governance
-Building governance processes around access management.
+My objective is to demonstrate practical capabilities in designing, implementing, securing, and governing enterprise identity environments.
 
-Project 4 - Hybrid Identity
-Designing a hybrid identity architecture.
+## Core Technical Areas
 
-Project 5 - Identity Automation
-Automating identity lifecycle management using PowerShell and Microsoft Graph.
+- Microsoft Entra ID
+- Identity & Access Management (IAM)
+- Zero Trust Security Architecture
+- Role-Based Access Control (RBAC)
+- Multi-Factor Authentication (MFA)
+- Privileged Identity Management (PIM)
+- Identity Governance & Administration (IGA)
+- Joiner-Mover-Leaver (JML) Processes
+- Conditional Access
+- Identity Security Operations
+- Microsoft Graph API
+- PowerShell Automation
+- Hybrid Identity Architecture
+
+## Portfolio Organisation
+
+**Organisation:** Unigreen Bio  
+**Platform:** Microsoft Entra ID
+
+Unigreen Bio serves as the organisation for my practical identity engineering exercises and enterprise architecture case studies.
+
+## Featured Projects
+
+| Project | Focus |
+|---|---|
+| Project 1 | Enterprise Zero Trust Identity Architecture |
+| Project 2 | Privileged Access Management |
+| Project 3 | Identity Governance & Access Reviews |
+| Project 4 | Hybrid Identity Architecture |
+| Project 5 | Automated Joiner-Mover-Leaver Framework |
+| Project 6 | Research Collaboration Access Governance |
+| Project 7 | External Partner & Guest User Management |
+
+## Tools & Technologies
+
+- Microsoft Entra Admin Center
+- Microsoft Graph
+- PowerShell
+- GitHub
+- Draw.io
+- Microsoft 365
+
+## Certifications
+
+- Microsoft Certified: Identity and Access Administrator Associate (SC-300)
+- CompTIA Security+
+- ISC2 Certified in Cybersecurity (CC)
+
+## Project Documentation
+
+Each project will include relevant architecture diagrams, implementation evidence, security considerations, technical documentation, and lessons learned.
+
+Practical implementations will be distinguished from proposed enterprise designs and features requiring additional licensing.
+
+---
+
+**Identity Engineering | Access Governance | Zero Trust | Cloud Security**
