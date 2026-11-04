@@ -1,15 +1,18 @@
-Identity Security Assessment Report
+# Identity Security Assessment Report
 
-Organisation: Unigreen Bio
-Project: Enterprise Zero Trust Identity Program
-Platform: Microsoft Entra ID
-Tenant: Unigreen592.onmicrosoft.com
-Licence: Microsoft Entra ID Free
-Assessment Date: November 4, 2026
-Assessor: Tochukwu Osuji
-Assessment Type: Read-Only Identity Security Review
+**Organisation:** Unigreen Bio  
+**Project:** Enterprise Zero Trust Identity Program  
+**Platform:** Microsoft Entra ID  
+**Tenant:** Unigreen592.onmicrosoft.com  
+**Licence:** Microsoft Entra ID Free  
+**Assessment Date:** November 4, 2026  
+**Assessor:** Tochukwu Osuji  
+**Assessment Type:** Read-Only Identity Security Review  
+**Status:** Completed
 
-1. Executive Summary
+---
+
+## 1. Executive Summary
 
 This assessment evaluates the existing identity security configuration of the Unigreen Bio Microsoft Entra ID learning tenant.
 
@@ -17,413 +20,314 @@ The objective is to establish a baseline of identity security controls, evaluate
 
 The assessment was performed through the Microsoft Entra Admin Center without modifying existing tenant configurations.
 
-Key Findings:
+### Key Findings
 
-10 user identities identified.
+- **10 user identities** identified.
+- **7 groups** identified.
+- **1 Global Administrator assignment** observed.
+- **Microsoft Entra Security Defaults** enabled.
+- **Microsoft Authenticator** enabled in authentication method policies.
+- **FIDO2 Passkeys** enabled in authentication method policies.
+- **SMS and voice authentication** disabled.
+- Advanced Conditional Access and PIM implementations not verified.
 
-7 groups identified.
+---
 
-1 Global Administrator assignment observed.
+## 2. Assessment Scope
 
-Microsoft Entra Security Defaults enabled.
+### Areas Reviewed
 
-Microsoft Authenticator and FIDO2 passkeys enabled in authentication method policies.
+- User account inventory
+- Group inventory
+- Global Administrator role assignments
+- Authentication method policies
+- Security Defaults configuration
 
-SMS and voice authentication methods disabled.
+### Out of Scope
 
-Advanced Conditional Access and PIM implementation not verified.
+- Penetration testing
+- Production application access testing
+- Conditional Access implementation
+- Privileged Identity Management configuration
+- User sign-in behaviour analysis
+- Device compliance assessment
 
-2. Assessment Scope
+---
 
-The assessment covered:
+## 3. Identity Inventory
 
-User account inventory
+### 3.1 User Accounts
 
-Group inventory
+| Identity Category | Count |
+|---|---:|
+| Member Users | 9 |
+| Guest Users | 1 |
+| **Total Users** | **10** |
 
-Global Administrator role assignments
+### Observation
 
-Authentication method policies
+The tenant contains member and guest identities suitable for demonstrating identity lifecycle management, group-based access control, and external identity governance.
 
-Security Defaults configuration
+### Recommendation
 
-Out of Scope:
+Establish documented procedures for:
 
-Penetration testing
+- User provisioning
+- Access modification
+- Account disablement
+- Guest access reviews
+- Identity lifecycle management
 
-Production application access testing
+### 3.2 Group Inventory
 
-Conditional Access implementation
+| Group Category | Count |
+|---|---:|
+| Security Groups | 4 |
+| Microsoft 365 Groups | 3 |
+| **Total Groups** | **7** |
 
-Privileged Identity Management configuration
+### Existing Security Groups
 
-User sign-in behaviour analysis
+- Dallas Windows Devices
+- Los Angeles Windows Devices
+- New York Windows Devices
+- SG-Finance-Access
 
-Device compliance assessment
+### Observation
 
-3. Identity Inventory
+The tenant contains existing security groups that can support role-based access control demonstrations.
 
-3.1 User Accounts
+The **SG-Finance-Access** group provides an opportunity to assess and demonstrate controlled access based on business responsibilities.
 
-Identity Category
+### Recommendation
 
-Count
+Develop a consistent group management framework that includes:
 
-Member users
+- Group naming conventions
+- Group ownership
+- Membership criteria
+- Access approval procedures
+- Periodic membership reviews
 
-9
+---
 
-Guest users
+## 4. Privileged Access Assessment
 
-1
+### 4.1 Global Administrator Role
 
-Total users
+| Control | Observation |
+|---|---|
+| Role | Global Administrator |
+| Assignments Observed | 1 |
+| Assigned Identity | Primary Tenant Administrator |
+| Assignment Type | User |
+| Scope | Directory |
+| Emergency Access Accounts | Not Verified |
+| PIM Eligibility | Not Assessed |
 
-10
+### 4.2 Risk Analysis
 
-Observation:
-
-The tenant contains member and guest identities suitable for demonstrating identity lifecycle management, group-based access, and external identity governance.
-
-Recommendation:
-
-Establish documented procedures for user provisioning, access modification, account disablement, and guest access reviews.
-
-3.2 Group Inventory
-
-Group Category
-
-Count
-
-Security groups
-
-4
-
-Microsoft 365 groups
-
-3
-
-Total groups
-
-7
-
-Existing Security Groups:
-
-Dallas Windows Devices
-
-Los Angeles Windows Devices
-
-New York Windows Devices
-
-SG-Finance-Access
-
-Observation:
-
-The tenant contains security groups that can support access control demonstrations.
-
-Recommendation:
-
-Develop a consistent group naming convention and document group ownership, purpose, membership criteria, and periodic review requirements.
-
-4. Privileged Access Assessment
-
-4.1 Global Administrator Role
-
-Control
-
-Observation
-
-Role
-
-Global Administrator
-
-Assignments observed
-
-1
-
-Assigned identity
-
-Primary tenant administrator
-
-Scope
-
-Directory
-
-Emergency access accounts
-
-Not verified
-
-PIM eligibility
-
-Not assessed
-
-4.2 Risk Analysis
-
-The Global Administrator role provides extensive administrative control over the tenant.
+The Global Administrator role provides extensive administrative control over the Microsoft Entra environment.
 
 A single observed Global Administrator assignment may introduce administrative recovery challenges if the account becomes inaccessible.
 
-Recommendations:
+### Recommendations
 
-Design dedicated emergency access procedures.
+1. Design dedicated emergency access procedures.
+2. Separate routine user activities from privileged administrative activities.
+3. Protect privileged accounts with strong authentication.
+4. Periodically review privileged role assignments.
+5. Evaluate time-bound privileged access using Microsoft Entra PIM where appropriate licensing is available.
 
-Separate routine user activities from privileged administrative activities.
+**Assessment Note:** No administrative role assignments were modified during this review.
 
-Protect privileged accounts with strong authentication.
+---
 
-Periodically review privileged role assignments.
+## 5. Authentication Security Assessment
 
-Evaluate time-bound privileged access using Microsoft Entra PIM where appropriate licensing is available.
+### 5.1 Authentication Method Policies
 
-No administrative role assignments were changed during this assessment.
+| Authentication Method | Policy Status |
+|---|---|
+| Passkey (FIDO2) | Enabled |
+| Microsoft Authenticator | Enabled |
+| Temporary Access Pass | Enabled |
+| Software OATH Tokens | Enabled |
+| Email OTP | Enabled |
+| QR Code | Enabled |
+| SMS | Disabled |
+| Voice Call | Disabled |
+| Hardware OATH Tokens | Disabled |
+| Certificate-Based Authentication | Disabled |
+| Verified ID | Disabled |
 
-5. Authentication Security Assessment
+### 5.2 Positive Security Observations
 
-5.1 Authentication Method Policies
+- FIDO2 passkeys are available as a phishing-resistant authentication option.
+- Microsoft Authenticator is enabled.
+- SMS and voice authentication methods are disabled in the displayed policy.
+- Temporary Access Pass is available as an authentication and onboarding option.
 
-Authentication Method
+### 5.3 Assessment Limitations
 
-Policy Status
+An enabled authentication method policy does not establish that every user has registered the method.
 
-Passkey (FIDO2)
-
-Enabled
-
-Microsoft Authenticator
-
-Enabled
-
-Temporary Access Pass
-
-Enabled
-
-Software OATH tokens
-
-Enabled
-
-Email OTP
-
-Enabled
-
-QR code
-
-Enabled
-
-SMS
-
-Disabled
-
-Voice call
-
-Disabled
-
-Hardware OATH tokens
-
-Disabled
-
-Certificate-based authentication
-
-Disabled
-
-Verified ID
-
-Disabled
-
-5.2 Security Analysis
-
-Positive Observations:
-
-FIDO2 passkeys are available as a phishing-resistant authentication option.
-
-Microsoft Authenticator is enabled.
-
-SMS and voice authentication methods are disabled in the displayed policy.
-
-Assessment Limitation:
-
-An enabled authentication method policy does not establish that every user has registered the method or that MFA is enforced during every sign-in.
+It also does not confirm that MFA is enforced during every sign-in.
 
 User registration coverage and actual authentication behaviour were not assessed.
 
-Recommendations:
+### Recommendations
 
-Review authentication method registration reports.
+- Review authentication method registration reports.
+- Promote phishing-resistant authentication for privileged identities.
+- Evaluate authentication method usage and adoption.
+- Document account recovery procedures.
+- Periodically review authentication policy configurations.
 
-Promote phishing-resistant authentication for privileged identities.
+---
 
-Evaluate authentication method usage and adoption.
+## 6. Security Defaults Assessment
 
-Document account recovery procedures.
+| Security Control | Finding |
+|---|---|
+| Microsoft Entra Security Defaults | Enabled |
+| Custom Conditional Access Policies | Not Assessed |
+| Identity Protection Risk Policies | Not Assessed |
 
-6. Security Defaults Assessment
+### Observation
 
-Security Control
+Microsoft Entra Security Defaults is enabled in the Unigreen Bio learning tenant.
 
-Finding
+Security Defaults provides baseline identity protections, including MFA-related safeguards and blocking legacy authentication.
 
-Microsoft Entra Security Defaults
+However, Security Defaults does not provide the granular policy configuration available through Microsoft Entra Conditional Access.
 
-Enabled
+### Recommendation
 
-Custom Conditional Access policies
+Retain the existing Security Defaults configuration during the learning exercise.
 
-Not assessed
+Develop a proposed Conditional Access architecture separately, clearly identifying additional licensing requirements.
 
-Identity Protection risk policies
+**Important:** No tenant-wide security settings were changed during this assessment.
 
-Not assessed
+---
 
-Observation:
+## 7. Identity Security Risk Register
 
-Security Defaults provides baseline identity protection, including MFA-related protections and blocking legacy authentication.
+| Risk ID | Potential Risk | Priority | Recommended Action |
+|---|---|---|---|
+| IAM-001 | Administrative recovery dependency | High | Design emergency access procedures |
+| IAM-002 | Unverified MFA registration coverage | Medium | Review authentication registration reports |
+| IAM-003 | Unverified group membership governance | Medium | Document ownership and review procedures |
+| IAM-004 | Unverified privileged access lifecycle controls | Medium | Develop privileged access governance |
+| IAM-005 | Limited evidence of sign-in monitoring | Medium | Review audit and sign-in logging capabilities |
 
-However, it does not provide the granular policy design available through Microsoft Entra Conditional Access.
+### Risk Assessment Note
 
-Recommendation:
+The priorities above represent preliminary assessment judgments.
 
-Retain the existing Security Defaults configuration during this learning exercise.
+They are not confirmed security incidents or proven vulnerabilities.
 
-Develop a proposed Conditional Access architecture separately, clearly identifying any additional licensing requirements.
+Further validation is required before determining actual risk exposure.
 
-7. Risk Register
+---
 
-ID
+## 8. Zero Trust Security Alignment
 
-Potential Risk
+The proposed identity architecture follows three core Zero Trust principles.
 
-Priority
+### 8.1 Verify Explicitly
 
-Recommended Action
+**Objective:** Validate identity and apply strong authentication.
 
-IAM-001
+Proposed controls:
 
-Administrative recovery dependency
+- Strong authentication
+- Authentication method governance
+- Sign-in security monitoring
+- Phishing-resistant authentication
 
-High
+### 8.2 Use Least Privilege
 
-Design emergency access procedures
+**Objective:** Restrict access to the minimum permissions required.
 
-IAM-002
+Proposed controls:
 
-Unverified MFA registration coverage
+- Role-Based Access Control (RBAC)
+- Administrative role separation
+- Periodic access reviews
+- Privileged access governance
 
-Medium
+### 8.3 Assume Breach
 
-Review authentication registration reporting
+**Objective:** Reduce the potential impact of identity compromise.
 
-IAM-003
+Proposed controls:
 
-Unverified group membership governance
+- Emergency recovery planning
+- Identity monitoring
+- Privileged access auditing
+- Incident response procedures
 
-Medium
+---
 
-Document ownership and review procedures
+## 9. Implementation Roadmap
 
-IAM-004
+| Phase | Activity | Status |
+|---|---|---|
+| Phase 1 | Identity Security Baseline Assessment | Completed |
+| Phase 2 | User and Security Group Access Model | Planned |
+| Phase 3 | Administrative Access Architecture | Planned |
+| Phase 4 | MFA Security Strategy | Planned |
+| Phase 5 | Emergency Access Design | Planned |
+| Phase 6 | Security Control Matrix | Planned |
+| Phase 7 | Zero Trust Architecture Diagram | Planned |
+| Phase 8 | Final Technical Validation | Planned |
 
-Unverified privileged access lifecycle controls
+---
 
-Medium
+## 10. Assessment Methodology
 
-Develop a privileged access governance model
+The assessment was conducted using a read-only review of the Microsoft Entra Admin Center.
 
-IAM-005
+### Assessment Activities
 
-Limited evidence of sign-in monitoring
+1. Reviewed the tenant's user inventory.
+2. Identified existing member and guest accounts.
+3. Reviewed Microsoft 365 and security groups.
+4. Inspected Global Administrator role assignments.
+5. Reviewed authentication method policies.
+6. Confirmed Microsoft Entra Security Defaults status.
+7. Documented observations and potential risks.
+8. Developed security recommendations.
 
-Medium
+### Evidence Collection
 
-Review available audit and sign-in logging capabilities
+Assessment evidence was collected through Microsoft Entra Admin Center screenshots and direct configuration observations.
 
-Priorities are preliminary assessment judgments, not confirmed incidents or proven vulnerabilities.
+Screenshots intended for public publication should be reviewed and redacted to prevent exposure of sensitive information.
 
-8. Zero Trust Alignment
+---
 
-The proposed security architecture follows three core Zero Trust principles.
+## 11. Key Lessons Learned
 
-Verify Explicitly
+The assessment demonstrated that identity security requires more than enabling authentication features.
 
-Strong authentication
+An effective identity security programme combines:
 
-Authentication method governance
+- Identity inventory management
+- Access control governance
+- Administrative privilege protection
+- Authentication security
+- Monitoring and auditing
+- Security architecture documentation
+- Risk assessment and remediation planning
 
-Sign-in security monitoring
+The assessment also highlighted the importance of distinguishing between configured security policies and verified enforcement outcomes.
 
-Use Least Privilege
+---
 
-Role-based access control
-
-Administrative role separation
-
-Periodic access reviews
-
-Assume Breach
-
-Emergency recovery planning
-
-Identity monitoring
-
-Privileged access auditing
-
-Incident response procedures
-
-9. Implementation Roadmap
-
-Phase
-
-Activity
-
-Status
-
-1
-
-Identity security baseline assessment
-
-Completed
-
-2
-
-User and security group access model
-
-Planned
-
-3
-
-Administrative access architecture
-
-Planned
-
-4
-
-MFA security strategy
-
-Planned
-
-5
-
-Emergency access design
-
-Planned
-
-6
-
-Security control matrix
-
-Planned
-
-7
-
-Zero Trust architecture diagram
-
-Planned
-
-8
-
-Final technical validation
-
-Planned
-
-10. Conclusion
+## 12. Conclusion
 
 The initial assessment established a documented identity security baseline for the Unigreen Bio Microsoft Entra ID learning tenant.
 
@@ -431,3 +335,16 @@ The review identified existing security configurations, documented administrativ
 
 Future project phases will focus on strengthening identity governance documentation, developing enterprise security architecture, and implementing controls supported by the available environment.
 
+---
+
+## Assessment Summary
+
+**Assessment Status:** Completed  
+**Environment:** Personal Microsoft Entra ID Learning Tenant  
+**Configuration Changes:** None  
+**Next Phase:** User and Security Group Access Model  
+
+---
+
+**Prepared by:** Tochukwu Osuji  
+**Specialisation:** Identity & Access Management | Microsoft Entra ID | Zero Trust Security
